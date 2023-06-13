@@ -1,0 +1,16 @@
+<h1>Tasks#index</h1>
+<p>Find me in app/views/tasks/index.html.erb</p>
+
+<% @tasks.each do  |task|  %>
+<%= link_to task_path(task) do%>
+<div>
+      <%= task.title %> <span><%= link_to "Ici pour editer", edit_task_path(task.id) %>
+    <span><%= link_to "Supprimer la tache",
+        task_path(task.id),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %></span>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to "Ajoute une tache", new_task_path  %>
